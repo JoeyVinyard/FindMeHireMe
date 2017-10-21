@@ -1,0 +1,22 @@
+.splashText{
+	font-size: 80px
+}
+.orangehead{
+	color: rgb(255,63,0);
+}
+.splashpanel{
+	background-color: rgba(240,240,240, .9);
+	margin-top:10px;
+	padding:5px;
+	height: 80vh;
+}
+.cont{
+	padding-top:10px;
+}
+.invalid{
+	border-left: 5px solid #a94442;
+}
+.errorText{
+	font-size: 16px;
+	color: #a94442;
+}

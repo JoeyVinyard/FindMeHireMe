@@ -1,6 +1,36 @@
-<div class="col-md-9"></div>
-<div class="col-md-3">
-	<div class="panel panel-default">
-		hi
+<div class="splash">
+	<div class="col-md-9">
+		<p class="splashText">Be Discovered, <span class=orangehead>Get Hired</span></p>
+	</div>
+	<div class="col-md-3">
+		<div class="splashpanel panel panel-default">
+			<h1>Sign In</h1>
+			<form (ngSubmit)="onSubmit()" #signupForm="ngForm">
+				<div class="form-group">
+					<label for="email">Email:</label>
+					<input name="email" type="text" class="form-control" id="email" required [(ngModel)] = "model.email" [ngClass]="{'invalid': errors.email }">
+					<p class="errorText" *ngIf="errors.email">{{errors.email}}</p>
+				</div>
+				<div class="form-group">
+					<label for="passowrd">Password:</label>
+					<input name="password" type="password" class="form-control" id="password" required [(ngModel)] = "model.pass" [ngClass]="{'invalid': errors.pass }">
+					<p class="errorText" *ngIf="errors.pass">{{errors.pass}}</p>
+				</div>
+				<div class="form-group">
+					<label for="confpass">Confirm Password:</label>
+					<input name="confpass" type="password" class="form-control" id="confpass" required [(ngModel)] = "model.confpass" [ngClass]="{'invalid': errors.confpass }">
+					<p class="errorText" *ngIf="errors.confpass">{{errors.confpass}}</p>
+				</div>
+				<div class="form-group">
+					<label for="role">Role</label>
+					<select name="role" class="form-control" id="role" required [(ngModel)] = "model.role">
+						<option [value]="forhire">For Hire</option>
+						<option [value]="hiring">Hiring</option>
+					</select>
+				</div>
+
+				<button type="submit" class="btn btn-success" [disabled]="!valid">Submit</button>
+			</form>
+		</div>
 	</div>
 </div>
