@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../services/auth.service';
 
 @Component({
 	selector: 'app-splash',
@@ -10,10 +11,6 @@ export class SplashComponent implements OnInit {
 	errors: any = {}; //This one is public so that angular can access it
 	model: any = {};  //Model that angular will store data in
 	valid = true;
-
-
-
-	constructor(){}
 
 	validateEmail(email) {
 		var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -40,13 +37,20 @@ export class SplashComponent implements OnInit {
 
 		return !!Object.keys(this.errors).length;
 	}
-
+	print(){
+		console.log(this.model);
+	}
 	onSubmit(){
+		console.log(this.model);
 		this.valid = this.validate();
 		if(this.valid){
 			return;
 		}
-		//submit
+		this.auth.signup(this.model.email, this.model.pass, this.model.role);
+	}
+
+	constructor(public auth: AuthService){
+		this.model.role = "forhire";
 	}
 
 	ngOnInit() {}

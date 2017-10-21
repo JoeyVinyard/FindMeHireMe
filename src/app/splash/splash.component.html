@@ -24,12 +24,12 @@
 				<div class="form-group">
 					<label for="role">Role</label>
 					<select name="role" class="form-control" id="role" required [(ngModel)] = "model.role">
-						<option [value]="forhire">For Hire</option>
-						<option [value]="hiring">Hiring</option>
+						<option value="forhire">For Hire</option>
+						<option value="hiring">Hiring</option>
 					</select>
 				</div>
 
-				<button type="submit" class="btn btn-success" [disabled]="!valid">Submit</button>
+				<button type="submit" class="btn btn-success submitButton" [disabled]="!valid">Submit</button>
 			</form>
 		</div>
 	</div>
