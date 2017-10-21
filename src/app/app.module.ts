@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ApplicationRef } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule }   from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { AgmCoreModule } from '@agm/core';
 
 import { Router } from '@angular/router';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -40,7 +42,10 @@ import { MapComponent } from './map/map.component';
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(routes),
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyC_1z8WV5mxr-WfR3JM692lmjnKtobxtYY'
+    })
   ],
   providers: [
     AngularFireAuth,

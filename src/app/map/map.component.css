@@ -1,0 +1,14 @@
+agm-map {
+	height: calc(100vh - 54px);
+	margin: 0;
+	padding: 0;
+}
+.wide{
+	padding: 0;
+}
+.panel{
+	background-color: #e8e8e8;
+	height: calc(100vh - 54px);
+	margin: 0;
+	padding: 0;
+}
