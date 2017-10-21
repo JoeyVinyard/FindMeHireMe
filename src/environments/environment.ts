@@ -5,7 +5,7 @@ export const environment = {
     authDomain: 'findmehireme.firebaseapp.com',
     databaseURL: 'https://findmehireme.firebaseio.com/',
     projectId: 'findmehireme',
-    storageBucket: '<your-storage-bucket>',
+    storageBucket: 'gs://findmehireme.appspot.com/',
     messagingSenderId: '<your-messaging-sender-id>'
   }
 };

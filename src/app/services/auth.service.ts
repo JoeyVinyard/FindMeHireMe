@@ -13,8 +13,8 @@ export class AuthService {
 
 	signup(email, password, role){
 		console.log(email,password,role);
-		this.afAuth.auth.createUserWithEmailAndPassword(email,password).then((val) => {
-			this.afd.database.ref(this.getCurUid()).set({
+		this.afAuth.auth.createUserWithEmailAndPassword(email,password).then((user) => {
+			this.afd.database.ref(user.uid).set({
 				email: email,
 				role: role
 			}).then(() => {
@@ -29,7 +29,7 @@ export class AuthService {
 		});
 	}
 	signin(email, password){
-		this.afAuth.auth.signInWithEmailAndPassword(email,password).then(()=>{
+		this.afAuth.auth.signInWithEmailAndPassword(email,password).then((user)=>{
 			//Get user role, then send them to correct page
 		})
 		.catch((error) => {

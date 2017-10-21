@@ -1,3 +1,31 @@
-<p>
-  create-hiring-profile works!
-</p>
+<div class="col-md-4 col-md-offset-4">
+	<div class="panel panel-default form-panel">
+		<h1 class="titletext">Create Profile</h1>
+		<form class= "main-form-body" (ngSubmit)="onSubmit()" #signupForm="ngForm">
+			<div *ngIf="!partOneDone">
+				<div class="form-group">
+					<label class="formLabel" for="name">Full Name:</label>
+					<input name="name" type="text" class="form-control" id="name" required [(ngModel)] = "model.name" [ngClass]="{'invalid': errors.name }">
+					<p class="errorText" *ngIf="errors.name">{{errors.name}}</p>
+				</div>
+				<div class="form-group">
+					<label class="formLabel" for="company">Company/Organization:</label>
+					<input name="company" type="text" class="form-control" id="company" required [(ngModel)] = "model.company" [ngClass]="{'invalid': errors.company }">
+					<p class="errorText" *ngIf="errors.company">{{errors.company}}</p>
+				</div>
+				<div class="form-group">
+					<label class="formLabel" for="size">Company Size:</label>
+					<select name="size" class="form-control" id="size" required [(ngModel)] = "model.size" [ngClass]="{'invalid': errors.size }">
+						<option value="startup">Startup(&lt;20)</option>
+						<option value="small">Small(&lt;100)</option>
+						<option value="smallmed">Medium-Small(&lt;500)</option>
+						<option value="medium">Medium(&lt;1000)</option>
+						<option value="large">Large(&gt;1000)</option>
+					</select>
+					<p class="errorText" *ngIf="errors.size">{{errors.size}}</p>
+				</div>
+				<button type="submit" class="btn btn-success submitButton" [disabled]="!valid">Continue</button>
+			</div>
+		</form>
+	</div>
+</div>

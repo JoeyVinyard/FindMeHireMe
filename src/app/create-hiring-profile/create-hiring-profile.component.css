@@ -1,0 +1,40 @@
+.errorText{
+	font-size: 12px;
+	margin-bottom: 1px;
+	color: #a94442;
+}
+.form-panel{
+	margin-top: 11px;
+	padding: 20px;
+	background-color: rgba(240,240,240, .85);
+	height: 88vh;
+	text-align: center;
+}
+.titletext{
+	font-size: 36px;
+	margin-top: 9px;
+	margin-bottom:20px;
+}
+.main-form-body{
+	text-align: left;
+}
+.form-group{
+	margin-bottom: 10px;
+}
+.formLabel{
+	margin-bottom:0px;
+}
+.submitButton{
+	margin-top: 20px;
+	width: 100px;
+	border-color: rgb(220,30,0);
+	background-color: rgb(255,63,0);
+}
+.submitButton:active{
+	border-color: rgb(180,15,0);
+	background-color: rgb(220,30,0);
+}
+.submitButton:disabled{
+	border-color: rgb(180,15,0);
+	background-color: rgb(255,90,45);
+}

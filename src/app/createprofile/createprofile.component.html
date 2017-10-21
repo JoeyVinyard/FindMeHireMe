@@ -1,5 +1,85 @@
 <div class="col-md-4 col-md-offset-4">
 	<div class="panel panel-default form-panel">
-		<h1>Create Profile</h1>
+		<img class="img-circle" height=100 width=100 [src]="image">
+		<h1 class="titletext">Create Profile</h1>
+		<form class= "main-form-body" (ngSubmit)="onSubmit()" #signupForm="ngForm">
+			<div *ngIf="!partOneDone">
+				<div class="form-group">
+					<label class="formLabel" for="name">Full Name:</label>
+					<input name="name" type="text" class="form-control" id="name" required [(ngModel)] = "model.name" [ngClass]="{'invalid': errors.name }">
+					<p class="errorText" *ngIf="errors.name">{{errors.name}}</p>
+				</div>
+				<div class="form-group">
+					<label class="formLabel" for="years">Years of Experience:</label>
+					<input name="years" type="number" class="form-control" id="years" required [(ngModel)] = "model.years" [ngClass]="{'invalid': errors.years }">
+					<p class="errorText" *ngIf="errors.years">{{errors.years}}</p>
+				</div>
+				<div class="form-group">
+					<label class="formLabel" for="salary">Desired Salary:</label>
+					<input name="salary" type="number" class="form-control" id="salary" required [(ngModel)] = "model.salary" [ngClass]="{'invalid': errors.salary }">
+					<p class="errorText" *ngIf="errors.salary">{{errors.salary}}</p>
+				</div>
+				<div class="form-group">
+					<label class="formLabel" for="relocate">Willing to Relocate?</label>
+					<select name="relocate" class="form-control" id="relocate" required [(ngModel)] = "model.relocate" [ngClass]="{'invalid': errors.relocate }">
+						<option value="yes">Yes</option>
+						<option value="no">No</option>
+					</select>
+					<p class="errorText" *ngIf="errors.relocate">{{errors.relocate}}</p>
+				</div>
+				<div class="form-group">
+					<label class="formLabel" for="relocate">Willing to work Remote?</label>
+					<select name="remote" class="form-control" id="remote" required [(ngModel)] = "model.remote" [ngClass]="{'invalid': errors.remote }">
+						<option value="yes">Yes</option>
+						<option value="no">No</option>
+					</select>
+					<p class="errorText" *ngIf="errors.remote">{{errors.remote}}</p>
+				</div>
+				<div class="form-group">
+					<label class="formLabel" for="size">Desired Company Size:</label>
+					<select name="size" class="form-control" id="size" required [(ngModel)] = "model.size" [ngClass]="{'invalid': errors.size }">
+						<option value="startup">Startup(&lt;20)</option>
+						<option value="small">Small(&lt;100)</option>
+						<option value="smallmed">Medium-Small(&lt;500)</option>
+						<option value="medium">Medium(&lt;1000)</option>
+						<option value="large">Large(&gt;1000)</option>
+					</select>
+					<p class="errorText" *ngIf="errors.size">{{errors.size}}</p>
+				</div>
+				<div class="form-group">
+					<label class="formLabel" for="profilepic">Profile Picture:</label>
+					<input type="file" (change)="fileChange($event)" placeholder="Upload Profile Image">
+					<p class="errorText" *ngIf="errors.image">{{errors.image}}</p>
+				</div>
+				<button type="button" (click)="continue()" class="btn btn-success submitButton" [disabled]="!valid">Continue</button>
+			</div>
+			<div *ngIf="partOneDone">
+				<div class="form-group">
+					<label class="formLabel" for="skills">Skills:</label>
+					<textarea name="skills" rows=5 type="text" class="form-control" id="skills" [(ngModel)] = "model.skills"></textarea>
+				</div>
+				<p>Enter as a comma seperated list.</p>
+				<br>
+				<div class="form-group">
+					<label class="formLabel" for="skills">About you: (Optional)</label>
+					<textarea name="about" rows=6 type="text" class="form-control" id="about" [(ngModel)] = "model.about"></textarea>
+				</div>
+				<div class="form-group">
+					<label class="formLabel" for="city">City:</label>
+					<input name="city" type="text" class="form-control" id="city" required [(ngModel)] = "model.city" [ngClass]="{'invalid': errors.city }">
+					<p class="errorText" *ngIf="errors.city">{{errors.city}}</p>
+				</div>
+				<div class="form-group">
+					<label class="formLabel" for="state">State:</label>
+					<input name="state" type="text" class="form-control" id="state" required [(ngModel)] = "model.state" [ngClass]="{'invalid': errors.state }">
+					<p class="errorText" *ngIf="errors.state">{{errors.state}}</p>
+				</div>
+				<div class="form-group">
+					<label class="formLabel" for="resume">Resume:</label>
+					<input type="file" (change)="resumeChange($event)">
+				</div>
+				<button type="submit" class="btn btn-success submitButton" [disabled]="!valid">Continue</button>
+			</div>
+		</form>
 	</div>
 </div>

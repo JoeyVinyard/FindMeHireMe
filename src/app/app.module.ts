@@ -21,6 +21,10 @@ import { CreateprofileComponent } from './createprofile/createprofile.component'
 import { CreateHiringProfileComponent } from './create-hiring-profile/create-hiring-profile.component';
 import { SignoutComponent } from './signout/signout.component';
 
+import 'firebase/storage';
+import { ProfilesuccessComponent } from './profilesuccess/profilesuccess.component';
+import { MapComponent } from './map/map.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +32,9 @@ import { SignoutComponent } from './signout/signout.component';
     NavbarComponent,
     CreateprofileComponent,
     CreateHiringProfileComponent,
-    SignoutComponent
+    SignoutComponent,
+    ProfilesuccessComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,

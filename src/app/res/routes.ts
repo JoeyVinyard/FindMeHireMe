@@ -3,6 +3,8 @@ import {SignoutComponent} from '../signout/signout.component';
 import {CreateprofileComponent} from '../createprofile/createprofile.component';
 import {CreateHiringProfileComponent} from '../create-hiring-profile/create-hiring-profile.component';
 
+import {AuthGuard} from '../services/auth-guard.service'
+
 export const routes = [
 	{
 		path: '',
@@ -14,10 +16,12 @@ export const routes = [
 	},
 	{
 		path: 'createprofile',
-		component: CreateprofileComponent
+		component: CreateprofileComponent,
+		canActivate: [AuthGuard]
 	},
 	{
 		path: 'createhiringprofile',
-		component: CreateHiringProfileComponent
+		component: CreateHiringProfileComponent,
+		canActivate: [AuthGuard]
 	}
 ];
