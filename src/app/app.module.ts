@@ -9,6 +9,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireModule } from 'angularfire2';
 
 import { AuthService } from './services/auth.service';
+import { AuthGuard } from './services/auth-guard.service';
 
 import { routes } from './res/routes';
 import { environment } from '../environments/environment';
@@ -17,13 +18,17 @@ import { AppComponent } from './app.component';
 import { SplashComponent } from './splash/splash.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CreateprofileComponent } from './createprofile/createprofile.component';
+import { CreateHiringProfileComponent } from './create-hiring-profile/create-hiring-profile.component';
+import { SignoutComponent } from './signout/signout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SplashComponent,
     NavbarComponent,
-    CreateprofileComponent
+    CreateprofileComponent,
+    CreateHiringProfileComponent,
+    SignoutComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +39,8 @@ import { CreateprofileComponent } from './createprofile/createprofile.component'
   providers: [
     AngularFireAuth,
     AngularFireDatabase,
-    AuthService
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

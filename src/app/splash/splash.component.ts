@@ -41,7 +41,6 @@ export class SplashComponent implements OnInit {
 		console.log(this.model);
 	}
 	onSubmit(){
-		console.log(this.model);
 		this.valid = this.validate();
 		if(this.valid){
 			return;
