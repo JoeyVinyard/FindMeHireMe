@@ -98,7 +98,7 @@ export class CreateprofileComponent implements OnInit {
 	}
 
 	constructor(public auth: AuthService, public afd: AngularFireDatabase, public firebaseApp: FirebaseApp, public router: Router) {
-
+		this.model.size = "startup";
 	}
 
 	ngOnInit() {

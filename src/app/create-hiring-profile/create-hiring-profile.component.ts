@@ -14,27 +14,34 @@ export class CreateHiringProfileComponent implements OnInit {
 	errors: any={};
 
 	validate(){
+		this.errors = {};
 		if(!this.model.name){
 			this.errors.name = "Please provide your name.";
 		}
 		if(!this.model.company){
 			this.errors.company = "Please provide your company.";
 		}
-		if(!this.model.companysize){
-			this.errors.companysize = "Please provide company size.";
+		if(!this.model.size){
+			this.errors.size = "Please provide company size.";
 		}
+		console.log(this.errors);
 		return !!Object.keys(this.errors).length;
 	}
 
 	onSubmit(){
-		if(this.validate())
+		console.log(this.model);
+		if(this.validate()){
+			console.log("Failed validation");
 			return;
+		}
 		this.afd.database.ref(this.auth.getCurUid()+"/profile").set(this.model).then(() => {
 			this.router.navigateByUrl("map");
 		})
 	}
 
-	constructor(public auth: AuthService, public afd: AngularFireDatabase, public router: Router) { }
+	constructor(public auth: AuthService, public afd: AngularFireDatabase, public router: Router) {
+		this.model.size = "startup";
+	}
 
 	ngOnInit() {
 	}

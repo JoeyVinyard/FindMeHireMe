@@ -2,6 +2,7 @@ import {SplashComponent} from '../splash/splash.component';
 import {SignoutComponent} from '../signout/signout.component';
 import {CreateprofileComponent} from '../createprofile/createprofile.component';
 import {CreateHiringProfileComponent} from '../create-hiring-profile/create-hiring-profile.component';
+import {MapComponent} from '../map/map.component';
 
 import {AuthGuard} from '../services/auth-guard.service'
 
@@ -22,6 +23,11 @@ export const routes = [
 	{
 		path: 'createhiringprofile',
 		component: CreateHiringProfileComponent,
+		canActivate: [AuthGuard]
+	},
+	{
+		path: 'map',
+		component: MapComponent,
 		canActivate: [AuthGuard]
 	}
 ];
