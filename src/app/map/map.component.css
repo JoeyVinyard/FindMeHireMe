@@ -3,12 +3,57 @@ agm-map {
 	margin: 0;
 	padding: 0;
 }
+p{
+	word-break: keep-all;
+}
 .wide{
 	padding: 0;
+	margin: 0;
 }
 .panel{
 	background-color: #e8e8e8;
-	height: calc(100vh - 54px);
+	height: calc(70vh - 53px);
+	overflow-y: scroll;
 	margin: 0;
-	padding: 0;
+	padding: 10px;
+	text-align: center;
+}
+.filter{
+	background-color: #aaa;
+	height: calc(30vh);
+	overflow-y: scroll;
+	margin: 0;
+	padding: 10px;
+	text-align: center;
+}
+.profilePic{
+	margin-top:24px;
+}
+.nameTag{
+	font-size: 20px;
+	margin-bottom: 5px;
+}
+.sectionTitle{
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom:2px;
+}
+.sectionContent{
+	font-size: 16px;
+	font-weight: normal;
+}
+.left{
+	text-align: left;
+}
+.inline-div{
+	float: left;
+	background-color: #888;
+	margin: 3px;
+	display:inline-block;
+}
+#slidecontainer{
+	margin-top: 5px;
+}
+div.clear {
+    clear:both;
 }

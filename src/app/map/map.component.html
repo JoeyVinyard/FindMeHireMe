@@ -1,8 +1,46 @@
-<div class="col-md-3 panel">
-	
+<div class="col-md-3 wide">
+	<div class="panel">
+		<img [src]="imgSrc||defaultSrc" class="img-circle profilePic" width=100 height=100>
+		<br>
+		<p *ngIf="showProfile.name" class="nameTag">{{showProfile.name}}</p>
+		<div class="left">
+			<p *ngIf="showPerson.email" class="sectionTitle">Email: <span class="sectionContent">{{showPerson.email}}</span></p>
+			<p *ngIf="showProfile.city" class="sectionTitle">Location: <span class="sectionContent">{{showProfile.city}}, {{showProfile.state}}</span></p>
+			<p *ngIf="showProfile.years" class="sectionTitle">Years of Exp.: <span class="sectionContent">{{showProfile.years}}</span></p>
+			<p *ngIf="showProfile.salary" class="sectionTitle">Desired Salary: <span class="sectionContent">{{showProfile.salary}}</span></p>		
+			<p *ngIf="showProfile.relocate" class="sectionTitle">Relocate: <span class="sectionContent">{{showProfile.relocate}}</span></p>
+			<p *ngIf="showProfile.remote" class="sectionTitle">Remote: <span class="sectionContent">{{showProfile.remote}}</span></p>
+			<p *ngIf="showProfile.skills" class="sectionTitle">Skills: <span class="sectionContent">{{showProfile.skills}}</span></p>
+			<p *ngIf="showProfile.about" class="sectionTitle">About me:</p>
+			<p *ngIf="showProfile.about" class="sectionContent">{{showProfile.about}}</p>
+			<p *ngIf="pdfSrc" class="sectionContent"><a href="{{pdfSrc}}" target="_blank">Resume</a></p>
+		</div>
+	</div>
+	<div class="filter">
+		<p class ="sectionTitle">Skill Fiters: </p>
+		<div class="inline-div" *ngFor="let skill of skillFilter">
+			<input type="checkbox" id="{{skill}}" (click)="toggleSkill(skill)" name="{{skill}}" value={{skill}}>
+			<label for="{{skill}}">{{skill}}</label>
+		</div>
+		<div class="inline-div">
+			<input type="checkbox" id="relocate" (click)="toggleRelocate()" name="relocate" value=relocate>
+			<label for="relocate">Relocate</label>
+		</div>
+		<div class="inline-div">
+			<input type="checkbox" id="remote" (click)="toggleRemote()" name="remote" value=remote>
+			<label for="remote">Remote</label>
+		</div>
+		<div class="clear"></div>
+		<div id="slidecontainer">
+			<p>Max Salary: {{maxSalary}}</p>
+			<input type="range" [(ngModel)]="maxSalary" (change)="changeSalary()" min="10000" max="1000000" value="1000000" class="slider" id="myRange">
+		</div>
+	</div>
 </div>
 <div class="col-md-9 wide">
 	<agm-map [zoom]="zoom" [latitude]="lat" [longitude]="lng">
-		<agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+		<agm-marker *ngFor="let p of people" (markerClick)="onClick(p)" [visible]="p.show" [iconUrl]="pin" [latitude]="p.profile.location.lat" [longitude]="p.profile.location.lng">
+
+		</agm-marker>
 	</agm-map>
 </div>

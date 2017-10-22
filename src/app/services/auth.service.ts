@@ -29,11 +29,13 @@ export class AuthService {
 		});
 	}
 	signin(email, password){
-		this.afAuth.auth.signInWithEmailAndPassword(email,password).then((user)=>{
-			//Get user role, then send them to correct page
+		return this.afAuth.auth.signInWithEmailAndPassword(email,password).then((user)=>{
+			return this.afd.database.ref(user.uid+"/role").once("value").then((s) => {
+				return s.val();
+			})
 		})
 		.catch((error) => {
-			console.error(error);
+			return error.message;
 		})
 	}
 	signout(){

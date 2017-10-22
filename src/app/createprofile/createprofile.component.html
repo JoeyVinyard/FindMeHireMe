@@ -22,16 +22,16 @@
 				<div class="form-group">
 					<label class="formLabel" for="relocate">Willing to Relocate?</label>
 					<select name="relocate" class="form-control" id="relocate" required [(ngModel)] = "model.relocate" [ngClass]="{'invalid': errors.relocate }">
-						<option value="yes">Yes</option>
-						<option value="no">No</option>
+						<option value="Yes">Yes</option>
+						<option value="No">No</option>
 					</select>
 					<p class="errorText" *ngIf="errors.relocate">{{errors.relocate}}</p>
 				</div>
 				<div class="form-group">
 					<label class="formLabel" for="relocate">Willing to work Remote?</label>
 					<select name="remote" class="form-control" id="remote" required [(ngModel)] = "model.remote" [ngClass]="{'invalid': errors.remote }">
-						<option value="yes">Yes</option>
-						<option value="no">No</option>
+						<option value="Yes">Yes</option>
+						<option value="No">No</option>
 					</select>
 					<p class="errorText" *ngIf="errors.remote">{{errors.remote}}</p>
 				</div>

@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
 import 'firebase/storage';
 import { AuthService } from '../services/auth.service';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
 	selector: 'app-createprofile',
@@ -89,15 +90,27 @@ export class CreateprofileComponent implements OnInit {
 			return;
 		}
 		this.model.skills = this.model.skills.split(",");
-		this.afd.database.ref(this.auth.getCurUid()+"/profile").set(this.model).then(() => {
-			this.router.navigateByUrl("profilesuccess");
-		})
-		.catch((error) => {
-			console.error(error);
+		this.getLatLong(this.model.city + ", " + this.model.state).then((location) => {
+			this.model.location = location;
+			this.afd.database.ref(this.auth.getCurUid()+"/profile").set(this.model).then(() => {
+				this.router.navigateByUrl("profilesuccess");
+			})
+			.catch((error) => {
+				console.error(error);
+			});
+		})	
+	}
+
+	getLatLong(loc){
+		return this.http.get("https://maps.googleapis.com/maps/api/geocode/json?address="+loc+"&key=AIzaSyC_1z8WV5mxr-WfR3JM692lmjnKtobxtYY").toPromise().then((data) => {
+			// Read the result field from the JSON response.
+			data["results"][0].geometry.location.lat+=(Math.random()-0.5)/10;
+			data["results"][0].geometry.location.lng+=(Math.random()-0.5)/10;
+			return (data["results"][0].geometry.location);
 		});
 	}
 
-	constructor(public auth: AuthService, public afd: AngularFireDatabase, public firebaseApp: FirebaseApp, public router: Router) {
+	constructor(public auth: AuthService, public afd: AngularFireDatabase, public firebaseApp: FirebaseApp, public router: Router, private http: HttpClient) {
 		this.model.size = "startup";
 	}
 

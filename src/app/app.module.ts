@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule }   from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AgmCoreModule } from '@agm/core';
+import {HttpClientModule} from '@angular/common/http';
 
 import { Router } from '@angular/router';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -26,6 +27,7 @@ import { SignoutComponent } from './signout/signout.component';
 import 'firebase/storage';
 import { ProfilesuccessComponent } from './profilesuccess/profilesuccess.component';
 import { MapComponent } from './map/map.component';
+import { SigninComponent } from './signin/signin.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { MapComponent } from './map/map.component';
     CreateHiringProfileComponent,
     SignoutComponent,
     ProfilesuccessComponent,
-    MapComponent
+    MapComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,8 @@ import { MapComponent } from './map/map.component';
     AngularFireModule.initializeApp(environment.firebase),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyC_1z8WV5mxr-WfR3JM692lmjnKtobxtYY'
-    })
+    }),
+    HttpClientModule
   ],
   providers: [
     AngularFireAuth,

@@ -1,6 +1,9 @@
 .navbar{
 	margin-bottom: 0px;
 }
+.title{
+	font-size: 26px;
+}
 .orangehead{
 	color: rgb(255,63,0);
 }
