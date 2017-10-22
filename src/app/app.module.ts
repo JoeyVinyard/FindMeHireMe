@@ -28,6 +28,7 @@ import 'firebase/storage';
 import { ProfilesuccessComponent } from './profilesuccess/profilesuccess.component';
 import { MapComponent } from './map/map.component';
 import { SigninComponent } from './signin/signin.component';
+import { EditprofileComponent } from './editprofile/editprofile.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { SigninComponent } from './signin/signin.component';
     SignoutComponent,
     ProfilesuccessComponent,
     MapComponent,
-    SigninComponent
+    SigninComponent,
+    EditprofileComponent
   ],
   imports: [
     BrowserModule,

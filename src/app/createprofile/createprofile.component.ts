@@ -93,7 +93,7 @@ export class CreateprofileComponent implements OnInit {
 		this.getLatLong(this.model.city + ", " + this.model.state).then((location) => {
 			this.model.location = location;
 			this.afd.database.ref(this.auth.getCurUid()+"/profile").set(this.model).then(() => {
-				this.router.navigateByUrl("profilesuccess");
+				this.router.navigateByUrl("editprofile");
 			})
 			.catch((error) => {
 				console.error(error);

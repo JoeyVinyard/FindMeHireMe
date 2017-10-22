@@ -1,0 +1,70 @@
+<div class="col-md-4 col-md-offset-4">
+	<div class="splashpanel panel panel-default">
+		<div *ngIf="!editing">
+			<h1>{{profile.name}}</h1>
+			<h2>Email</h2>
+			<h3>{{person.email}}</h3>
+			<h2>Salary</h2>
+			<h3>{{profile.salary}}</h3>
+			<h2>Relocation</h2>
+			<h3>{{profile.relocate}}</h3>
+			<h2>Remote</h2>
+			<h3>{{profile.remote}}</h3>
+			<h2>Skills</h2>
+			<h3>{{profile.skills}}</h3>
+			<h2>About</h2>
+			<h3>{{profile.about}}</h3>
+			<button type="button" (click)="edit()" class="btn btn-success submitButton">Edit</button>
+		</div>
+		
+		<form class= "main-form-body" *ngIf="editing" (ngSubmit)="onSubmit()" #signupForm="ngForm">
+			<div>
+				<div class="form-group">
+					<label class="formLabel" for="name">Full Name:</label>
+					<input name="name" type="text" class="form-control" id="name" required [(ngModel)] = "model.name">
+				</div>
+				<div class="form-group">
+					<label class="formLabel" for="years">Years of Experience:</label>
+					<input name="years" type="number" class="form-control" id="years" required [(ngModel)] = "model.years">
+				</div>
+				<div class="form-group">
+					<label class="formLabel" for="salary">Desired Salary:</label>
+					<input name="salary" type="number" class="form-control" id="salary" required [(ngModel)] = "model.salary">
+				</div>
+				<div class="form-group">
+					<label class="formLabel" for="relocate">Willing to Relocate?</label>
+					<select name="relocate" class="form-control" id="relocate" required [(ngModel)] = "model.relocate">
+						<option value="Yes">Yes</option>
+						<option value="No">No</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label class="formLabel" for="relocate">Willing to work Remote?</label>
+					<select name="remote" class="form-control" id="remote" required [(ngModel)] = "model.remote">
+						<option value="Yes">Yes</option>
+						<option value="No">No</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label class="formLabel" for="skills">Skills:</label>
+					<textarea name="skills" rows=5 type="text" class="form-control" id="skills" [(ngModel)] = "model.skills"></textarea>
+				</div>
+				<p>Enter as a comma seperated list.</p>
+				<br>
+				<div class="form-group">
+					<label class="formLabel" for="skills">About you: (Optional)</label>
+					<textarea name="about" rows=6 type="text" class="form-control" id="about" [(ngModel)] = "model.about"></textarea>
+				</div>
+				<div class="form-group">
+					<label class="formLabel" for="city">City:</label>
+					<input name="city" type="text" class="form-control" id="city" required [(ngModel)] = "model.city">
+				</div>
+				<div class="form-group">
+					<label class="formLabel" for="state">State:</label>
+					<input name="state" type="text" class="form-control" id="state" required [(ngModel)] = "model.state">
+				</div>
+				<button type="submit" class="btn btn-success submitButton">Save</button>
+			</div>
+		</form>
+	</div>
+</div>
